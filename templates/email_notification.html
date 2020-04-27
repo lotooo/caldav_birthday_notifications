@@ -1,0 +1,12 @@
+<html>
+  <body>
+  {% for report in reports -%}
+    <h3>Anniversaires dans les {{ report.duration }} prochains jours :</h3>
+    <ul>
+    {% for birthday in report.birthdays|sort(attribute='date') -%}
+      <li> {{ birthday.date }}: {{ birthday.summary }}</li>
+    {% endfor -%}
+    </ul>
+  {% endfor -%}
+  </body>
+</html>
